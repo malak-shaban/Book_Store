@@ -11,6 +11,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 // Connect Database
 connectDB();
+//////////////////////////////////
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to Book Store API!',
+    status: 'Server is running successfully'
+  });
+});
 // Routes
 app.use("/", authRoutes);
 app.use("/books", bookRoutes);
